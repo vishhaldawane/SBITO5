@@ -1,0 +1,210 @@
+		
+					who
+					|?Role
+			-------------------------------------------
+			|				|
+			where				when
+			|space				|time
+		------------------------------------------------------
+		|			|			|
+		why			what			how
+		reason			information		implementation
+
+
+
+
+
+
+			Spring Core, ORM+JPA, MVC, Boot, Rest
+
+
+				Java Technology
+					|
+		-----------------------------------------------------
+		|			|			|
+		JSE Core Java		JEE Enterprise 		JME Micro
+		|				|
+	OOPs concepts			-----------------------
+	1)Association principal		|		|
+	"isA hasA usesA producesA"	WEB		E(JavaBeans)/POJO
+	2)Exception handling		|		|
+	UDT				Servlets	-------------------------------------
+	3) packages			JSP		|		|		|
+	4) multithreading				Session		Entity		Message
+	5) generics and collections			|Spring Core	   | PK		| Spring Mail
+							|		   |		SMS Mail
+		ArrayList/LinkedList		--------------------	--------------------
+		TreeSet/HashSet			|		|		|	|Spring ORM/Spring Data JPA
+		TreeMap				"state"less	"state"ful	BMP	CMP
+		Algorithms - Collections	|		|
+	6) FIle I/O				
+	7) JDBC
+
+	Machine
+	|isA
+	ATMMachine
+		CardReader - hasA
+			|			Card
+			|			|isA
+			| Bill			|
+			| |isA			|
+			ATMBill dispenseCash(ATMCard ac) throws CardExpiredException
+			{  |			|
+ 			  producesA		usesA
+			}
+
+		hosted on an os - UNIX - SOlaris/AIX/hp-UX
+		|
+		hosted by a server application- weblogic / web sphere/ jboss
+					|
+					BankApp
+					|
+			----------------------------------------
+			|	|	|	|	|
+			http	<---------non-http------------->
+			|
+			PC	ATM	Visa	Phone	SmartPhone
+			|	|	|	|	|
+			Chrome	app	CC/DC	SMS/IVR	app
+
+	Enterprise
+	|
+	1 - Remote capability of an application
+		networking
+			Socket
+
+	2 - HA - high availability of the application
+			24 x 7 
+			Clustering 	- 4 machines
+
+	3 - Multithreading
+			Thread - Runnable 
+
+	4 - Pooling of resources
+
+	5 - Caching of resources
+
+	6 - Transcation management
+			ACID
+
+	7 - Security management	
+		TLS - https
+
+	Developer		EnterpriseDeveloper	MS
+	|			|			|
+	class			bean			component
+
+	class SavingsAccount
+	{
+		float bankBalance;
+
+		withdraw() { }	
+		deposit() { }
+	}
+
+	framework = "semi developed" application
+
+
+
+		FlightEnquiry fe;
+		fe.findFlight();
+
+	class FlightEnquiry
+	{
+		List<Flight> findFlight(String s, String t, Date d)
+		{
+
+		}
+	}
+
+
+	class FlightTicket
+	{
+	}
+
+		FlightTicket ft1,ft2,ft3
+
+
+
+
+					store your object on the device/non-volatile media
+						|
+				-------------------------------------
+				|				|
+				file i/o			dbms
+				|				|
+			serialization				persistence
+								|
+
+							-----------------------
+							|		|
+							jdbc code	orm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			1 - database
+
+			2 - pojo - Employee
+					(core java)	   
+			3 - repository	- EmployeeDAO / EmployeeRepository
+						cook		chef
+								void storeEmp() { 
+						insert	....	  insert into emp values...
+								}	
+
+
+			4 - service - EmployeeService , EmployeeServiceImpl
+								storeEmpService() {
+									logic
+									storeEmp(); //repo call
+									logic
+								}
+				
+			5 - controller
+			6 - UI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
