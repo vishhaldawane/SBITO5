@@ -1,0 +1,70 @@
+
+	Spring + JDBC
+		  |
+		  BMP - developer develops the 
+			 sql queries using jdbc
+
+	Spring + ORM
+	|	  |
+	DI	  CMP - the container / fw would
+	IoC		generate the sql queries
+
+	Generate Entities from Tables
+
+	What is ORM
+
+	Object Relational mapping
+	|	|
+	POJO	Table
+	|	 	|
+	fields		columns
+	Flight		Flights
+	|	   	|		hsqldb   ms-sql  oracle
+int flightNumber	FLIGHTNUMBER(PK)int      bigint  number
+Sring flightName	FLIGHTNAME <-- varchar/nvarchar/varchar2
+flightSource		FLIGHTSOURCE
+flightDestination	FLIGHTDEST
+
+
+
+
+	1. Flight
+
+	2. FlightRepository
+
+	3. FlightRepositoryImpl
+
+	4. configuration in spring.xml
+
+	5. pom.xml is ready with orm libraries
+
+
+	LocalContainerEntityManagerFactoryBean
+
+	LocalContainerEntityManagerFactoryBean
+		|
+	 EntityManagerFactory
+			|
+		- EntityManager
+			|
+		--------------------------
+		|	|	|	|
+	     persist()	find()  merge()	remove()
+		|	|	|	|
+		insert	select update	delete
+
+	
+		<bean id="" class="A">
+		</bean>
+
+		<bean id="" class="B">
+		</bean>
+
+		<bean id="" class="C">
+		</bean>
+
+
+
+
+
+

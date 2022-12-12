@@ -1,0 +1,93 @@
+
+
+
+	What is a pojo / bean
+	1. it must be in a package
+	2. it must be public 
+	3. it must have public no-arg ctor
+	4. it must have private fields if any
+	5. instrospection methods,ie getters/setters
+
+	package com.fly; //1
+	public class Flight //2
+	{
+		private int flightNumber; //4
+		public Flight(){ } //3
+		public int getFlightNumber(){ 
+			return flightNumber;}
+		public void setFlightNumber(int x){ 
+			flightNumber=x;}
+	}
+
+-------------------------------------------
+
+Spring - JDBC
+
+
+		1. Database - HSQLDB / Oracle
+
+		2. pom.xml -> dependencies downloaded
+				
+
+		3. We need the instance of the 
+			following class
+			
+		org.springframework.jdbc.
+		datasource.
+		DriverManagerDataSource
+
+		4. we have to configure the above instance
+			by callings it setter methods
+
+		setDriverClassName();
+		setUrl
+		setUsername
+		setPassword
+
+	<bean id="myds" class="">
+		<property name="driverClassName">
+		<property name="url">
+		<property name="username">
+		<property name="password">
+	</bean>
+		
+
+create table flights
+(
+   flightNumber  int primary key,
+   flightName varchar(20),
+   flightSource varchar(20),
+   flightDest varchar(20)
+);
+insert into flights values (102,'Air France','Mumbai','Paris');
+insert into flights values (103,'Air America','Mumbai','New York');
+insert into flights values (104,'British Airways','Mumbai','London');
+insert into flights values (105,'Lufthansa','Mumbai','Germany');
+
+
+
+	com.sbi.layer1 -- database script
+	com.sbi.layer2 -- POJO
+	com.sbi.layer3 -- repo
+	com.sbi.layer4 -- service
+	com.sbi.layer5 -- controller
+
+
+
+
+
+	DAO
+	|
+	POJO	POJI			POJI_IMPL
+	|	|			|
+JAVA	Flight	FlightDAO		FlightDAOImpl
+SPRING	Flight	FlightRepository	FlightRepositoryImpl
+	|	 |
+	with	c-r-RA-u-d methods
+	|	
+	table
+	(flights)
+
+
+
+
