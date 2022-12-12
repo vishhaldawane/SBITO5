@@ -10,13 +10,40 @@
 	   xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx">
 	
-		
+	<!-- A -->
 	<bean id="myds4hsql" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.hsqldb.jdbc.JDBCDriver"/>
 		<property name="url" value="jdbc:hsqldb:hsql://localhost/xdb"/>
 		<property name="username" value="SA"/>
 		<property name="password" value=""/>
 	</bean>
+	
+	
+	<!-- B -->
+	<bean id="entityManagerFactory" 
+	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="packagesToScan" value="com"/>
+		<property name="dataSource" ref="myds4hsql"/>
+		
+		<property name="jpaVendorAdapter">
+			<bean 
+					class="org.springframework.orm.jpa.vendor.
+				HibernateJpaVendorAdapter">
+				<property name="generateDdl" value="true"/>
+				<property name="showSql" value="true"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- C -->
+	<bean id="txBean" class="org.springframework.orm.jpa.JpaTransactionManager">
+		
+		<property name="entityManagerFactory" 
+		ref="entityManagerFactory"/>
+	</bean>
+	
+	<!-- D -->
+	<tx:annotation-driven transaction-manager="txBean"/>  <!-- @Transactional -->
 	
 		
 	<bean id="myds4oracle" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -25,5 +52,7 @@
 		<property name="username" value="ajit"/>
 		<property name="password" value="tiger"/>
 	</bean>
+	
+	<context:component-scan base-package="com"></context:component-scan>
 	
 </beans>
