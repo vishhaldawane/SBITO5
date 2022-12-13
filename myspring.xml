@@ -6,9 +6,22 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx
-		http://www.springframework.org/schema/tx/spring-tx.xsd"
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 	   xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx">
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop">
+	
+	
+	<aop:aspectj-autoproxy/>
+	
+	<context:component-scan base-package="com"/>
+	
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="myds4hsql"></property>
+	</bean>
 	
 	<!-- A -->
 	<bean id="myds4hsql" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -27,8 +40,7 @@
 		
 		<property name="jpaVendorAdapter">
 			<bean 
-					class="org.springframework.orm.jpa.vendor.
-				HibernateJpaVendorAdapter">
+					class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="generateDdl" value="true"/>
 				<property name="showSql" value="true"/>
 			</bean>
@@ -53,6 +65,6 @@
 		<property name="password" value="tiger"/>
 	</bean>
 	
-	<context:component-scan base-package="com"></context:component-scan>
+		
 	
 </beans>
