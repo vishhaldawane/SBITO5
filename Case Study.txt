@@ -1,0 +1,135 @@
+
+	Agile
+=====================================================================
+
+
+Team 1 - Account Application Form
+
+		------------------------------
+		Account type : Savings / Current
+		Personal Info
+		KYC Details
+		Professional Details : Salaried / Self Employed / Business
+		Income Details 
+
+	A	B	C
+	col1	col2	col3	..	..	..	..	..	..
+
+
+
+
+	UserDetails		
+	-----------------
+	appid	emailaddress	firstname	lastname	
+	123	jack@gmail.com	Jack		Dsouza
+
+	Address
+	--------------
+	area	street	city	pin	state	aid
+	..	..	..	..	..	123
+
+
+	AccountStatus
+	------------------
+	aid	status	
+	----	-------
+	123	pending
+
+==============================================================================
+
+Team 2 - Admin Portal
+--------
+
+	admin		password
+	---------	-------------
+	peter		123
+	smith		2344
+
+
+	account_status
+	------------------
+	aid	status		reason		approvedby
+	123	rejected	invalid kyc	peter
+	223	accepted 	valid kyc	smith
+
+
+=====================================================================
+
+Team 3 - Account Dash Board
+
+	userdetails
+	---------------
+	PK
+	userid	password
+	------	-------
+	smith
+	peter
+
+FK
+userid	accountnumber	opening balance		type		account Holder
+smith	123		60000			Savings		..
+smith	223		75000			current		...
+smith	456		80000			fixed		....
+
+	
+--------------------------------------------------------------------
+
+Team 4 - Fund Transfer
+
+	transfer type	      : NEFT / RTGS / IMPS
+	select account number :
+
+	select payee 	      :
+
+	account table for source/target account
+
+	perform debit / credit calculations based on the transfers
+	
+--------------------------------------------------------------------
+	
+Team 5 - Statement management
+
+		generate custom statement
+		generate monthly statement
+		generate weekly statement	
+		generate PDF 
+
+---------------------------------------------------------------------
+
+Team 6 - Payee management
+
+		Add payee
+		View Payee
+		View All Payees
+		Delete Payee
+
+------------------------------------------------------------------------
+
+
+Team 7 - Existing Bank user applies for the loan
+		loan : personal loan
+		loan : loan against FD
+		loan : Credit card against FD
+
+-------------------------------------------------------------------------
+
+Team 8 - Card management
+
+		show various card types
+
+		change pin of the card
+
+		block the card
+
+		re-issue of a card
+
+		issue add-on card on existing card
+
+		
+
+	 
+
+
+
+
+			
