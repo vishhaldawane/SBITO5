@@ -1,4 +1,35 @@
 
+
+		loshu grid
+
+
+
+		-------------------------
+		| 4	|  9	|  2	|  15
+		-------------------------
+		| 3	|  5	|  7	|  15
+		-------------------------
+		| 8	|  1	|  6	|  15
+		-------------------------
+	15	15         15      15	   15
+
+
+1 = sun = king
+
+	10
+	28 10 1955  31=4
+		-------------------------
+		| 4	|  9	|  2	|  15
+		-------------------------
+		| x	|  55	|  x	|  15
+		-------------------------
+		| 8	|  111	|  x	|  15
+		-------------------------
+	15	15         15      15	   15
+
+
+
+
 	Spring + JDBC
 		  |
 		  BMP - developer develops the 
@@ -62,6 +93,339 @@ flightDestination	FLIGHTDEST
 
 		<bean id="" class="C">
 		</bean>
+
+
+EntityManager entityManager = Persistence.createEntityManager();
+
+EntityTransaction entityTrans=entityManager.getCurrentTransaction();
+
+entityTrans.begin();
+	entityManager.persist();
+entityTrans.commit();
+
+
+
+
+
+
+		
+		    SpringORM
+			|
+		--------------------
+		|
+		src
+		|
+	----------------------
+	|		|
+	main		test <-- test cases
+	|		|
+	----------	|
+	|	|	|
+	java resources	java
+	|	|	|
+    com.sbi  myspr.xml	com.sbi
+	|    DS EM ET TC   |
+entity->Flight @Id	FlightTestCases
+	@Entity
+	@Column
+
+repo->  FlightRepo (i)
+repoi-> FlightRepoImpl
+	@PersistenceContext
+
+
+
+
+
+class A
+{
+	void fun()
+	{
+		some pre logic...A
+			some code
+		some post logic...A
+	}
+}
+
+class B
+{
+	A a = new A();
+	void foo()
+	{
+		some pre logic...of B
+			a.fun();
+		some post logic...
+	}
+}
+class C
+{
+	B b = new B();
+	void far()
+	{
+		some pre logic...of C
+			b.foo();
+		some post logic...
+	}
+}
+
+C c = new C();
+	some pre logic...
+		c.far();
+	some post logic...
+
+
+
+
+
+
+
+
+
+----------------
+
+
+
+						1 DATABASE
+
+						Kitchen
+						2 Pizza   ColdDrink
+					
+						3 PizzaRepository
+						  ColdDrinkRepository
+	--------------NO PERMISSION-----------------------------------
+
+				4 PizzaService	ColdDrinkService
+					Service Counter
+					|	
+
+	Controller1	Controller2
+	|			|
+	i want paneer pizza
+	i want 1 coke
+	|
+	coupon 
+	Q1			Q2
+
+
+	<--			|			-->
+	pure jdbc		jdbc template		orm
+	|			|			|
+	DriverManager		JdbcTemplate		EntityManagerFactory
+	Connection		|	DataSource	EntityManager
+	Statement		|	DM,Drv,Url/u/p	persit()
+	ResultSet		methods			|
+	|			|			|
+   write the query	write the query		no need to write queries
+
+Menu
+|
+Pizza.....
+ColdDrink...
+|
+Customer
+
+trans1	------------------------------------------trans1
+begin						end
+
+Trans1			Trans2			Trans3
+begin			begin			begin
+  xxx			  xxx			  xxx
+end			end			end
+persist						persist
+|			JdbcTemplate		|
+ORM			direct sql query	ORM	
+POJO1			|			POJO2
+Order			no pojo here		Payment
+
+ORD			PRODUCT			PAYMENT
+|			|			|
+101 Jack ...		P101  Mobile  9998	T192922   19000/-  P101
+
+ORM			no jdbc/ jdbctemplate		ORM
+OrderRepository		ProductRepository	PaymentRepository
+    |				|			|
+  insert a new order	update the inventory	insert a new payment
+
+
+
+	@Transactional
+	placeNewOrderService() 
+	{
+		orderRepo.createNewOrder();
+		productRepo.updateQuantity();
+		paymentRepo.createNewPayment();
+	}
+
+
+
+	for our understanding			practically in projects
+	|					|
+	com.sbi.layer1	- database		com.sbi.dbscripts
+	com.sbi.layer2	- pojo - entities	com.sbi.entities
+	com.sbi.layer3	- repos			com.sbi.repo
+	com.sbi.layer4	- service		com.sbi.service
+	com.sbi.layer5	- controller		com.sbi.controller
+
+
+		AbstractRepository		
+			| EntityManager			
+			|   persist			
+		--------------------			
+		|		|			
+	OrderRepository	PaymentRepository	ProductRepository
+							JdbcTemplate
+
+
+	pure jdbc		jdbctemplate		orm
+	
+
+
+
+
+
+
+	1	   DATABASE - row
+			|
+			TABLE
+			|
+		-----------------------------------------
+		|		|		|
+	2	POJO		QUERY		PLSQL
+		|
+	3	REPO	-----------------------------------------> B2B
+		|
+		------------------------
+		|		|
+	4	SERVICE1	SERVICE2
+
+
+
+
+
+	AOP
+	-----
+
+		Aspect Oriented Programming
+		|
+	cross cutting concerns 
+	of an application
+
+	class weaving
+
+
+	class SavingsAccount
+	{
+		void withdraw(float amt)
+		{
+			...
+			balance = balance - amt;
+			...
+		}
+	}
+
+	class SavingsAccountProxy
+	{
+
+		SavingsAccount sa;
+
+		void withdraw(float amt)
+		{
+				     ensure security
+				     start a log
+			some logic - ask password
+				     confirm otp
+				     
+				sa.withdraw(amt);
+
+			some logic
+				    stop the log
+				    end the transaction
+				    release the security
+		}
+	}
+
+	
+
+	Logging 
+	Transaction
+	Security
+
+
+
+
+
+
+
+
+
+
+
+
+
+			   2				4
+	+----------------->AopProxy--------------------->BankAccount
+	|			|
+	|			|
+	|1		    interceptor
+	client			|		3
+				+----------> SecurityManager - advisor
+					     Aspect	     - advisor
+					     Inteception     - advisor	
+
+
+
+		1. Before
+		2. After
+		3. AfterReturning
+		4. AfterThrowing
+		5. Around
+
+	
+
+
+		Advice - what to do 
+
+		PointCut - where an advice should apply
+
+
+
+
+
+
+
+
+
+	1.	SavingsAccount
+
+	2. class SavingsAccount
+	 	{
+		 }
+
+	3. interface SavingsAccountRepository extend CrudRepository<SavingsAccount>
+	   {
+           }
+
+	SavingsAccountRepositoryimpl <-- provided by spring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
