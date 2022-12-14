@@ -1,0 +1,299 @@
+
+	MVC DESIGN PATTERN	vs/	MVC FRAMEWORK
+
+
+	MVC-- Design pattern
+	|
+	Model - data - table + pojo + repo
+
+	View - html / jsp - present the data [ model ]
+
+			    Controller 
+				|
+			-------------------
+			|		|
+			Model <------	View
+			[ data ]	[ page ]
+
+
+	a web site
+	|
+	entering my empno
+	|
+	should see my emp details <--- view
+
+
+
+
+
+	Hotel : owner of the hotel chain - Satish
+
+	f/w - semi developed application
+
+	sanpada- request --> pizza --- Satish
+	sanpada- request --> shirt --- Satish
+	sanpada- request --> salt --- Satish
+	sanpada- request --> wrist watch --- Satish
+	sanpada- request --> diamond --- Satish
+	|
+	FrontController
+
+	branch1 - Vashi
+	----------------------------------
+	|				|
+	|				|
+	----------------------------------
+	1. M Chef	- model is ready - pizza is ready
+	2. V Serve the Food - Presenter 	
+	3. C OrderTaker - Controller1
+
+
+
+	branch2 - Belapur
+	----------------------------------
+	|				|
+	|				|
+	----------------------------------
+	1. M Chef	- model is ready - pizza is ready
+	2. V Serve the Food - Presenter 
+	3. C OrderTaker - Controller2
+
+
+
+	| respond
+	|
+	| request
+	Customer1 - Pizza	table1
+
+
+
+	Customer2 - Idli	table2
+
+
+	Customer3 - FriedRice	table3
+
+	..
+
+	..10
+
+
+
+
+
+	M	V	C
+	|	|	|
+	data	view	contoller
+	|	|
+	20 ltr	empty
+	bottle	cup
+
+
+
+
+	http://192.168.1.103:8080/OnlineBanking/
+
+
+	Eclipse | STS | NetBeans | MSVSCODE .... | IDE
+
+	Developement Folder Structure would vary.. as per your IDE
+
+			JavaBasedWebApplication/WebProject
+				|
+		-----------------------------------
+			|
+			src
+			|
+		--------------------
+		|
+		main
+		|
+		java
+		|
+		webapp
+		|
+	-----------------------
+	|	|
+   index.jsp   WEB-INF
+
+
+	Deployment Folder Structure would be FIXED
+
+			JavaBasedWebApplication/WebProject
+				|
+		-----------------------------------
+			|
+			WEB-INF
+			|
+		--------------------
+		|	|	|
+	    classes	|	web.xml <-- deployment descriptor
+		|	|	|
+DispatcherServlet	|	|
+	myspring-servlet.xml	it is a mediator between the web developer
+				and the servlet container/server
+
+		
+
+
+				...	MODEL	VIEW
+				...
+				FlightJourneyController
+
+				FlightTicketController 
+
+ client ---> pnr -------->	FlightStatusController (CONTROLLER)
+   |					|
+  index.jsp				it searches this pnr against
+					the TreeMap (MODEL) / DB
+					|
+and revert a <table> to the customer -----+
+		VIEW
+
+
+
+        <---------->        <----------->
+	insert into EMP     values (???);
+	insert into STUDENT values (???);
+	insert into FLIGHT  values (???);
+			|
+		  TABLE NAME IS
+		   CHANGING
+
+	WE HAVE SEEN orm --> PERSIST(EMP);
+			
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+	Spring Based "WEB Application" in MVC way = Spring MVC
+
+
+		DispatcherServlet
+
+
+
+
+
+
+
+
+
+	Core Java		Enterprise Java
+	|			|
+	JDK			JDK
+				JSDK [ apache tomcat ]
+	javac			javac
+	java			x
+	p s v m() { }		x - no main method -
+				rather you have life-cycle-methods
+				FlightController {
+					doGet() / doPost()
+				}
+
+				FlightController fc = new FlightController ();
+				fc.doGet();
+
+
+
+
+
+
+
+
+
+			YourWebApplication
+				|			FlightController
+				Machine1			doGet() { }
+				|  Proxy   p1  p2  p3
+				|          =   =   =
+				|  Socket ss1 ss2 ss3;
+				|    +     +   +   +
+				|  Thread t1, t2, t3
+				|  (RC/HA/MT)
+				| APACHE 		+ TOMCAT
+				|  WEB	     		servlet container
+		---------------------------
+		|
+		|
+		|
+		Socket cs1	cs2		cs3	
+		|RC		RC		RC
+		|
+		Machine2	Machine3	Machine4...
+		|Nilesh		Madhavendra	Promita
+		Customer1	Customer2	Customer3
+		|		       |		|
+<---apache---><---tomcat--------------->		|
+http://ip:port/OnlineAirlines          |		|
+	|	http://ip:port/OnlineAirlines		|
+	123		|	http://ip:port/OnlineAirlines
+			223		|
+					423
+
+
+
+	OnlineAirlines
+		|
+		WEB-INF
+		   |
+		   web.xml
+			|
+		<welcome-file> index.jsp <welcome-file>
+
+	DispatcherServlet <-- is a bean --named as myspring
+
+	hence you must have 
+	"myspring-servlet.xml" as a spring's configuration
+		|
+	---------------------------
+	|
+	controller
+	|
+---------------------------------------------------------------------
+|		|		    |		     |
+LoginController PasswordController FlightController TicketCancell.....
+
+
+
+	Servlet = to generate dynamic  web output
+
+
+			web output
+				|
+			---------------------
+			|		|
+			static		dynamic
+			|		|
+			.html/.css    servlet/jsp pages
+			|		|
+		    login.html		login.jsp
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
