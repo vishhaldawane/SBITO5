@@ -1,0 +1,92 @@
+Firoz
+Aritra
+Namita
+
+
+
+
+
+
+	Spring Boot [ is a spring application ]
+	|
+	Autoconfiguration
+
+
+	0.
+	pom.xml
+	|
+	1.		2.		3.		4
+	myspring.xml	META-INF	web.xml		spring1-servlet.xml
+	|		|				spring2-servlet.xml
+	|		persistence.xml
+	|
+	ORM settings
+	jpaVendorAdapter
+
+	@ExtendWith
+	@ContextConfiguration
+
+	
+	application.properties	
+	KEY=VALUE
+	KEY=VALUE
+	KEY=VALUE
+
+
+
+
+			SpringBootSecurity
+				|
+----------------------------------------------------
+|	|	|	|		|	|
+db	pojo	repo	service	    config	controller
+|	|	|Crud	|		|		|
+|	|	||	|		|		UserResource
+|	|  UserRepo	|		|		|
+|	|		|   MySecurityConfiguration	/
+|	|	MyUserDetailsService			/user
+User	User		|				/logout
+|		loadUserByUsername			/admin
+row							
+
+
+
+
+
+	Authentication - to check the username and password
+	Autherization  - to check the whitelist or blacklist
+
+
+
+
+
+	interface	interface
+	UserDetails	UserDetailsService 	
+		|			|
+	actual fields <---loadUserByUsername();		
+
+	UserDetailsService uds = new MyUserDetailsService();
+	MyUserDetails uds.loadUserByUsername();
+
+
+		O <-- interface	UserDetailsService
+		| loadUserByUsername();
+		|
+		A
+		|
+		fun();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
